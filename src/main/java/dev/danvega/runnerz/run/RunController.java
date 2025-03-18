@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import java.util.Optional;
 
-@Tag(name = "Tutorial", description = "Tutorial management APIs")
+@Tag(name = "Run APIs", description = "Run management APIs")
 @RestController
 @RequestMapping("/api/runs")
 class RunController {
@@ -31,6 +31,11 @@ class RunController {
         return runRepository.findAll();
     }
 
+    @Operation(
+            summary = "Get all the runs by a specific id",
+            description = "Get all existing runs with specific id",
+            tags = {"API", "GET"}
+    )
     @GetMapping("/{id}")
     Run findById(@PathVariable Integer id) {
         Optional<Run> run = runRepository.findById(id);
