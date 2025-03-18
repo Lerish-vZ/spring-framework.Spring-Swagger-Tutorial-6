@@ -22,8 +22,8 @@ class RunController {
     }
 
     @Operation(
-            summary = "Get all the runs",
-            description = "Get all existing runs",
+            summary = "Get all runs.",
+            description = "Get all existing runs.",
             tags = {"API", "GET"}
     )
     @GetMapping
@@ -32,8 +32,8 @@ class RunController {
     }
 
     @Operation(
-            summary = "Get all the runs by a specific id",
-            description = "Get all existing runs with specific id",
+            summary = "Get run by id.",
+            description = "Get run with specified id",
             tags = {"API", "GET"}
     )
     @GetMapping("/{id}")
