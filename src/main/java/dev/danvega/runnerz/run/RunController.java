@@ -22,7 +22,7 @@ class RunController {
     }
 
     @Operation(
-            summary = "Get all runs.",
+            summary = "Get All Runs",
             description = "Get all existing runs.",
             tags = {"API", "GET"}
     )
@@ -32,8 +32,8 @@ class RunController {
     }
 
     @Operation(
-            summary = "Get run by id.",
-            description = "Get run with specified id",
+            summary = "Get By Id",
+            description = "Get run with specified id.",
             tags = {"API", "GET"}
     )
     @GetMapping("/{id}")
@@ -45,18 +45,33 @@ class RunController {
         return run.get();
     }
 
+    @Operation(
+            summary = "Create Run",
+            description = "Create a new Run.",
+            tags = {"API", "POST"}
+    )
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     void create(@Valid @RequestBody Run run) {
         runRepository.create(run);
     }
 
+    @Operation(
+            summary = "Update Run",
+            description = "Update a run by specifying the id.",
+            tags = {"API", "PUT"}
+    )
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     void update(@Valid @RequestBody Run run, @PathVariable Integer id) {
         runRepository.update(run,id);
     }
 
+    @Operation(
+            summary = "Delete By Id",
+            description = "Delete a run with specified id",
+            tags = {"API", "DELETE"}
+    )
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id) {
