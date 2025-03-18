@@ -1,5 +1,6 @@
 package dev.danvega.runnerz.run;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,11 @@ class RunController {
         this.runRepository = runRepository;
     }
 
+    @Operation(
+            summary = "Get all the runs",
+            description = "Get all existing runs",
+            tags = {"API", "GET"}
+    )
     @GetMapping
     List<Run> findAll() {
         return runRepository.findAll();
